@@ -1,21 +1,22 @@
 #!/bin/bash
+#Commented out lines are there for debugging, enable if you want more feedback while running the script. 
 
-echo $1
-
+# echo $1
 
 TARGET_DIR="../target"
 CURRENT_DIR=${PWD##*/}
 
-
 SOURCE_DIR=$(dirname "${1}")
 # echo $SOURCE_DIR
+
+# Used to ensure the current folder is being created
 if [[ $SOURCE_DIR == "." ]]; 
 then
 	NEW_FOLDER=$TARGET_DIR/$CURRENT_DIR
 else
 	NEW_FOLDER=$TARGET_DIR/$CURRENT_DIR/$SOURCE_DIR
 fi
-echo "Creating: \"$NEW_FOLDER\""
+# echo "Creating: \"$NEW_FOLDER\""
 mkdir -p "${NEW_FOLDER}"
 
 FILE_NAME=$(basename "${1}")
